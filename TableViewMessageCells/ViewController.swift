@@ -1,10 +1,5 @@
 import UIKit
 
-struct Message {
-    let text: String
-    let isIncoming: Bool
-}
-
 class ViewController: UITableViewController {
     
     private let identifier = "Cell"
