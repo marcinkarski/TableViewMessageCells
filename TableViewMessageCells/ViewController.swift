@@ -28,8 +28,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TableViewCell
         let message = messages[indexPath.row]
-        cell.label.text = message.text
-        cell.isIncoming = message.isIncoming
+        cell.message = message
         return cell
     }
 }
