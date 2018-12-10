@@ -9,7 +9,7 @@ class ViewController: UITableViewController {
     
     private let identifier = "Cell"
     
-    let messages = [Message(text: "This is my first message", isIncoming: true), Message(text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true), Message(text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false)]
+    let messages = [Message(text: "This is my first message", isIncoming: true), Message(text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true), Message(text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(text: "Last message.", isIncoming: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,11 +7,12 @@ class TableViewCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-            background.backgroundColor = (message?.isIncoming)! ? .white : .gray
-            label.textColor = (message?.isIncoming)! ? .darkGray : .white
-            label.text = message?.text
+            guard let message = message else { return }
+            background.backgroundColor = message.isIncoming ? .white : .gray
+            label.textColor = message.isIncoming ? .darkGray : .white
+            label.text = message.text
             
-            if (message?.isIncoming)! {
+            if (message.isIncoming) {
                 leadingConstraint?.isActive = true
                 trailingConstraint?.isActive = false
             } else {
