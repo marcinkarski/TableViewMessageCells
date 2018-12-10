@@ -1,6 +1,13 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    var isIncoming: Bool? {
+        didSet {
+            background.backgroundColor = isIncoming! ? .white : .lightGray
+            label.textColor = isIncoming! ? .darkGray : .white
+        }
+    }
 
     let label: UILabel = {
         let label = UILabel()
@@ -20,10 +27,11 @@ class TableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
         
         addSubview(background)
         addSubview(label)
-        NSLayoutConstraint.activate([label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32), label.topAnchor.constraint(equalTo: topAnchor, constant: 32), label.widthAnchor.constraint(equalToConstant: 240), label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16), background.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -16), background.topAnchor.constraint(equalTo: label.topAnchor, constant: -16), background.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 16), background.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: 16)])
+        NSLayoutConstraint.activate([label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32), label.topAnchor.constraint(equalTo: topAnchor, constant: 32), label.widthAnchor.constraint(lessThanOrEqualToConstant: 250), label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16), background.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -16), background.topAnchor.constraint(equalTo: label.topAnchor, constant: -16), background.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 16), background.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: 16)])
     }
     
     required init?(coder aDecoder: NSCoder) {
