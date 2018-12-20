@@ -53,6 +53,10 @@ class TableViewCell: UITableViewCell {
         trailingConstraint!.isActive = true
     }
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
