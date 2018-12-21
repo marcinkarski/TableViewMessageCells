@@ -2,7 +2,11 @@ import UIKit
 
 class TableViewController: UIViewController {
     
-    let messages = [[Message(date: Date.dateFromString(string: "14/12/2018"), text: "This is my first message", isIncoming: true), Message(date: Date.dateFromString(string: "14/12/2018"), text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true)], [Message(date: Date.dateFromString(string: "15/12/2018"), text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(date: Date.dateFromString(string: "15/12/2018"), text: "Last message.", isIncoming: true)]]
+//    let messages = [[Message(date: Date.dateFromString(string: "14/12/2018"), text: "This is my first message", isIncoming: true), Message(date: Date.dateFromString(string: "14/12/2018"), text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true)], [Message(date: Date.dateFromString(string: "15/12/2018"), text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(date: Date.dateFromString(string: "15/12/2018"), text: "Last message.", isIncoming: true)]]
+    
+    let dataFromServer = [Message(date: Date.dateFromString(string: "14/12/2018"), text: "This is my first message", isIncoming: true), Message(date: Date.dateFromString(string: "14/12/2018"), text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true), Message(date: Date.dateFromString(string: "15/12/2018"), text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(date: Date.dateFromString(string: "15/12/2018"), text: "Last message.", isIncoming: true)]
+    
+    var messages = [[Message]]()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.bounds, style: .plain)
@@ -63,29 +67,5 @@ extension TableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
-    }
-}
-
-class DateHeader: UILabel {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .black
-        textAlignment = .center
-        textColor = .white
-        font = UIFont.systemFont(ofSize: 12, weight: .bold)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        let originalContentSize = super.intrinsicContentSize
-        let height = originalContentSize.height + 12
-        layer.cornerRadius = height / 2
-        layer.masksToBounds = true
-        return CGSize(width: originalContentSize.width + 20, height: height)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
