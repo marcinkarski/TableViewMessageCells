@@ -27,7 +27,6 @@ class TableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.text = "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation."
         return label
     }()
     
@@ -45,7 +44,7 @@ class TableViewCell: UITableViewCell {
         
         addSubview(background)
         addSubview(label)
-        NSLayoutConstraint.activate([label.topAnchor.constraint(equalTo: topAnchor, constant: 32), label.widthAnchor.constraint(lessThanOrEqualToConstant: 250), label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16), background.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -16), background.topAnchor.constraint(equalTo: label.topAnchor, constant: -16), background.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 16), background.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: 16)])
+        NSLayoutConstraint.activate([label.topAnchor.constraint(equalTo: topAnchor, constant: 16), label.widthAnchor.constraint(lessThanOrEqualToConstant: 250), label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32), background.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -16), background.topAnchor.constraint(equalTo: label.topAnchor, constant: -16), background.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 16), background.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: 16)])
         
         leadingConstraint = label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
         leadingConstraint!.isActive = false

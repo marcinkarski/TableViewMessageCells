@@ -10,6 +10,7 @@ class TableViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
 }
@@ -27,16 +28,6 @@ extension TableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return messages.count
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let firstMessageInSection = messages[section].first {
-            let dateFormat = DateFormatter()
-            dateFormat.dateFormat = "dd/MM/yyyy"
-            let dateString = dateFormat.string(from: firstMessageInSection.date)
-            return dateString
-        }
-        return "\(Date())"
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages[section].count
@@ -47,5 +38,54 @@ extension TableViewController: UITableViewDataSource {
         let message = messages[indexPath.section][indexPath.row]
         cell.message = message
         return cell
+    }
+}
+
+extension TableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let firstMessageInSection = messages[section].first {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let dateString = dateFormatter.string(from: firstMessageInSection.date)
+            
+            let label = DateHeader()
+            let container = UIView()
+            label.text = dateString
+            container.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+            return container
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+}
+
+class DateHeader: UILabel {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .black
+        textAlignment = .center
+        textColor = .white
+        font = UIFont.systemFont(ofSize: 12, weight: .bold)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let originalContentSize = super.intrinsicContentSize
+        let height = originalContentSize.height + 12
+        layer.cornerRadius = height / 2
+        layer.masksToBounds = true
+        return CGSize(width: originalContentSize.width + 20, height: height)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
