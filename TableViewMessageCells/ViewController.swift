@@ -20,6 +20,7 @@ class ViewController: TableViewController {
         let grouping = Dictionary(grouping: dataFromServer) { (element) -> Date in
             return element.date
         }
+        
         let sorted = grouping.keys.sorted()
         sorted.forEach { (key) in
             let values = grouping[key]

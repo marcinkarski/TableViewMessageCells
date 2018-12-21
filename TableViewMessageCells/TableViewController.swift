@@ -2,8 +2,6 @@ import UIKit
 
 class TableViewController: UIViewController {
     
-//    let messages = [[Message(date: Date.dateFromString(string: "14/12/2018"), text: "This is my first message", isIncoming: true), Message(date: Date.dateFromString(string: "14/12/2018"), text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true)], [Message(date: Date.dateFromString(string: "15/12/2018"), text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(date: Date.dateFromString(string: "15/12/2018"), text: "Last message.", isIncoming: true)]]
-    
     let dataFromServer = [Message(date: Date.dateFromString(string: "14/12/2018"), text: "This is my first message", isIncoming: true), Message(date: Date.dateFromString(string: "14/12/2018"), text: "With our screen full designed, you'll see a nagging bug that occurs when you pull up the keyboard. We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: true), Message(date: Date.dateFromString(string: "15/12/2018"), text: "We'll have to account for the keyboard's size whenever its being presented by shifting our view up through a translation transformation.", isIncoming: false), Message(date: Date.dateFromString(string: "15/12/2018"), text: "Last message.", isIncoming: true)]
     
     var messages = [[Message]]()
